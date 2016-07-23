@@ -1,0 +1,6 @@
+BEGIN  	{RS=""}
+		{nbr++}
+	   	{fname= "/boot/home/Reference/Bin/tmp" nbr}
+		{printf "%s\n", $0 >fname}
+		{print "\n" >>fname}
+END 		{print nbr}

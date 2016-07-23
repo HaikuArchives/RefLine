@@ -1,0 +1,71 @@
+REFLINE HELP
+I wrote this program because  I needed such a tool for indexing and using bibliographic databases since BeOs Shell Tools do not include refer , lookbib and pubindex unix-like commands. I also wrote this program to test the BeOs Shells Tools and apart of the GUI, this program uses shell tools (mainly gawk, grep, sort and cat commands).
+
+Files used by References Manager respect the unix syntax. Record separator is an empty line. Inside a reference, each field begins with the % character followed by a key character and a string. Main key characters are listed below: 
+
+%A First Author
+%A Second Author and so on
+%B Book Title
+%C  Place of Publication
+%D Date
+%E Editor
+%I Publisher
+%J Journal Name
+%K Keywords 
+%N Journal Number
+%O Document Type
+%P Pages Number
+% T Article Title
+%V Journal Volume
+%X Comments such as Paper Abstract
+Other Key character are ignored by the program. I've include in the /Reference/Databases/ directory some sample files that were collected from the Medline Server.
+
+Main Menu
+This a very basic menu allowing to create, load and save databases (File Menu).  Loading a huge database may be time consuming because the gawk program  has to split the database into n records. 
+Tools menu is used to generate and update authors and journal indexes than can be used to fill a new reference.
+
+Browser 
+This  tab view gives an access to the database records. Four classical browsing buttons are included in order to access the first, the next, the previous and the last record. You can also directly go to a specific record by entering the record number in the text control. The "Copy" button makes a copy of the reference, according a fixed template, to the Editor tabview. 
+
+The  "New" button clears the form in order to create a new record, but you have to use the "Append" button to add the record in the database. This  "Append" button can also be used to copy the current record to the end of the database. You can also modify any record and validate by using the "Modify" button. The "Delete" buttons calls a dialog to confirm the record deleting and the database updating
+
+Search is case insensitive: just enter the required information and validate. Search uses a simple grep -i ' search string' command. Result list gives a direct access to the records that match the search string.
+
+
+Editor
+This second tab view allows an exploitation of your references. References that have been copied into the Editor view can be sorted and copied to the clipboard in order to use a word processor and to include your references in your article.
+
+Citations are formatted according to the rules established for Index Medicus ®. Sample journal and monograph citations appear below. For journal articles written in a foreign language, the English translation of the title is placed in brackets; for monographs, the title is given in the original language. In both cases the language of publication is shown by a three letter abbreviation appearing at the end of the citation.
+
+Journal Article:
+Example:
+Cimino JJ. Use of the Unified Medical Language System in patient care at the Columbia-Presbyterian Medical Center. Methods Inf Med 1995 Mar;34(1-2):158-64. 
+Order, with separating punctuation:
+Authors. Article Title. Abbreviated Journal Title Date;Volume(Issue):Pages.
+
+Book Chapter:
+Example:
+McCray AT. Representing biomedical knowledge in the UMLS semantic network. In: Broering NC, editor. High-performance medical libraries: advances in information management for the virtual era. Westport (CT): Meckler; 1993. p. 31-44. 
+Order, with separating punctuation:
+Chapter Authors. Chapter Title. Book Editor. Book Title. Place of Publication: Publisher; Date. Pages.
+
+Book:
+Example Hacker S. The BeOs Bible. Berkeley: Peachpit Press; 1999. 916 p. 
+Order , with separating punctuation:
+Authors. Book Title. Place of Publication: Publisher; Date. Number of Pages.
+
+Application Paths
+Default directory of this program is /boot/home/Reference/. If you want change the default directory edit the RefLine_data text file located in the /boot/home/config/settings directory according to your needs. You have also to edit the gawk  splitrecords and splitfields  programs located in the /Reference/Bin directory and modifiy the line  {fname= "/boot/home/Reference/Bin/tmp" nbr} according to the new path.
+
+
+Sources
+You'll find all the  sources in the Reference/Sources directory in order to adapt this program to your suits
+
+Thanks for testing and using this program
+
+Dr. François Jouen
+LNBA/PSY.CO
+Faculté des Sciences
+Université de Rouen
+F-76821 Mont Saint Aignan Cedex
+Email: jouen@epeire.univ-rouen.fr

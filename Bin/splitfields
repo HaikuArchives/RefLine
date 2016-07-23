@@ -1,0 +1,5 @@
+BEGIN  	{RS="%"}
+		{nbf++}
+	   	{fname= "/boot/home/Reference/Bin/ftmp" nbf}
+             	{printf "%s", $0>fname}
+END 		{print nbf}
